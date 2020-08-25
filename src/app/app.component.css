@@ -1,0 +1,186 @@
+.navbar {
+    background-color: #f1c20e !important;
+    width: 100%;
+}
+
+.container {
+    height: fit-content;
+    text-align: center;
+}
+
+#timer {
+    color: white;
+    font-weight: bold;
+    background-color: #2cbd4f;
+    width: 45%;
+    text-align: center;
+    border-radius: 5px;
+    margin: auto;
+    font-size: 2.4vw;
+    padding: 1% 0;
+}
+
+.custom-control-inline {
+    padding-left: 9%;
+}
+
+.choosedRadio {
+    direction: rtl;
+    margin-right: 17%;
+    margin-top: 3%;
+}
+.choosedRadio label {
+    color: white;
+}
+#logo {
+    width: 70%;
+    height: 95%;
+}
+
+#btn {
+    width: 100%;
+}
+
+#timer_text {
+    font-size: 2.4vw;
+}
+.col {
+    align-self: center;
+}
+
+#cards {
+    height: 25vw;
+}
+
+/* price div */
+.prices {
+    height: 600px;
+    margin: 25px;
+}
+
+/* footer */
+
+::placeholder {
+    color: #f0f0f0;
+    opacity: 0.5;
+    direction: rtl;
+    font-size: 1rem;
+}
+
+.conflex {
+    width: 100%;
+    display: inline-flex;
+    flex-wrap: wrap;
+    border: 1px solid black;
+}
+.flex-direction {
+    flex-direction: row;
+}
+
+/* UI Responsive # Dev Elsadat */
+
+.RegistrationFrom {
+    margin-top: 8%;
+}
+.RegistrationFrom .img {
+    width: 100%;
+}
+
+.newRequest {
+    border-radius: 8px;
+    padding: 25px;
+    background-color: #73395f;
+    width: 440px;
+    margin: 0 auto;
+}
+
+.form-group {
+    text-align: right;
+    color: white;
+}
+
+.form-group input {
+    background: #fff;
+    color: #73395f;
+    direction: rtl;
+    height: 55px;
+}
+.form-group input::placeholder {
+    color: #73395f;
+    font-size: 20px;
+}
+
+select {
+    direction: rtl;
+    height: 55px;
+    padding: 0 10px;
+}
+
+.submitForm {
+    width: 75%;
+    margin: 0 auto;
+    color: #fff;
+    background: #2cbd4f;
+    display: block;
+    height: 55px;
+    font-size: 25px;
+}
+
+.flexcon {
+    width: 80%;
+    margin: 0 auto;
+}
+.card {
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 10%;
+    display: block;
+    text-align: center;
+    align-content: center;
+    height: 500px;
+    position: relative;
+}
+.circle {
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    margin: 0 auto;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    position: absolute;
+    top: 50%;
+    background: #fff;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.circles img {
+    width: 80%;
+}
+
+.imgItem {
+    height: 50%;
+}
+.imgItem img {
+    height: 100%;
+}
+.card-body {
+    margin-top: 50px;
+}
+
+.title-Price{
+font-size: 22px;
+}
+/***************************************\
+     Main Queries // phone
+  \***************************************/
+@media (min-width: 300px) and (max-width: 930px) {
+    .form-group input,
+    select {
+        height: 40px;
+    }
+    .newRequest {
+        width: 100%;
+        margin: 39px auto;
+    }
+}
