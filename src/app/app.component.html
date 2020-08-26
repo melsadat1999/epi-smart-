@@ -199,18 +199,14 @@
     <form name="f" (ngSubmit)="f.form.valid && submit()" #f="ngForm" novalidate>
       <div class="row align-items-center">
 
-  
+
         <div class="col-12">
 
 
           <div class="form-group">
             <label for="fullName">الإسم بالكامل</label>
-
             <input type="text" placeholder="الإسم بالكامل" name="name" class="form-control" required
               [(ngModel)]="model.fullName" #name="ngModel" minlength="3" maxlength="100" />
-
-
-
             <div *ngIf="!name.valid && (f.submitted || name.dirty || name.touched)" class="text-danger">
               <div [hidden]="!name.errors.required">هذا الحقل مطلوب . </div>
 
@@ -260,8 +256,8 @@
             </div>
           </div>
           <button type="submit" class="btn  large" [disabled]="!f.valid"
-          style="width: 100%;padding: 2% 20%; font-weight:bold; background-color: #2cbd4f; color:white;">تأكيد
-          الطلب</button>
+            style="width: 100%;padding: 2% 20%; font-weight:bold; background-color: #2cbd4f; color:white;">تأكيد
+            الطلب</button>
         </div>
 
       </div>
