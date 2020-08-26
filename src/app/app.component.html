@@ -85,8 +85,7 @@
               <div [hidden]="!city.errors.required">هذا الحقل مطلوب . </div>
             </div>
           </div>
-            <button type="submit" class="btn submitForm " [disabled]="!ff.valid"
-            >تأكيد الطلب</button>
+          <button type="submit" class="btn submitForm " [disabled]="!ff.valid">تأكيد الطلب</button>
         </form>
       </div>
     </div>
@@ -112,7 +111,7 @@
   <div id="cards">
 
 
-    <div class="d-flex mb-4 mt-4 align-items-center" >
+    <div class="d-flex mb-4 mt-4 align-items-center">
       <div class="col-8 offset-1 ">
         <select class="custom-select" [(ngModel)]="country" (change)="selectChanged()">
           <option value="0">الدولة</option>
@@ -136,7 +135,7 @@
     <div class="flexcon">
       <div class="row">
         <div class="col-lg-3 col-sm-6" *ngFor="let item of offers;let i=index">
-          <div  class="shadow card">
+          <div class="shadow card">
             <div class="imgItem">
               <img [src]="item.image" class="card-img-top" alt="...">
             </div>
@@ -145,9 +144,9 @@
                 {{item.currentPrice}}{{item.currencyLetter}}
               </span>
             </div>
-    
+
             <div class="card-body">
-    
+
               <p class="p-sm">
                 <span class="price" *ngIf="i==0">
                   عبوة واحدة بعد الخصم
@@ -175,18 +174,18 @@
                   شحن مجاني
                 </span>
               </p>
-    
+
               <button (click)="orderOffer(i);scrollToElement(request)" class="btn"
                 style="background-color: #2cbd4f; color:white; border-radius:30px; padding:4% 10%;">اطلب
                 الآن</button>
             </div>
-    
-    
+
+
           </div>
         </div>
-        
+
       </div>
-  
+
     </div>
 
   </div>
@@ -200,13 +199,8 @@
     <form name="f" (ngSubmit)="f.form.valid && submit()" #f="ngForm" novalidate>
       <div class="row align-items-center">
 
-        <div class="col-6">
-          <button type="submit" class="btn  large" [disabled]="!f.valid"
-            style="padding: 2% 20%; font-weight:bold; background-color: #2cbd4f; color:white;">تأكيد
-            الطلب</button>
-        </div>
-
-        <div class="col-6">
+  
+        <div class="col-12">
 
 
           <div class="form-group">
@@ -265,43 +259,34 @@
 
             </div>
           </div>
-
+          <button type="submit" class="btn  large" [disabled]="!f.valid"
+          style="width: 100%;padding: 2% 20%; font-weight:bold; background-color: #2cbd4f; color:white;">تأكيد
+          الطلب</button>
         </div>
 
       </div>
-      <div class="row choosedRadio">
-        <!-- Default inline 1-->
-
+      <!-- <div class="row choosedRadio">
         <div class="custom-control custom-radio custom-control-inline">
           <input type="radio" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample"
             [value]="radioValues[0]" [(ngModel)]="template" mdbInput>
           <label class="custom-control-label" for="defaultInline1">1 عبوة</label>
-
         </div>
-
-        <!-- Default inline 2-->
         <div class="custom-control custom-radio custom-control-inline">
           <input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample"
             [(ngModel)]="template" [value]="radioValues[1]" mdbInput>
           <label class="custom-control-label" for="defaultInline2">2 عبوة</label>
         </div>
-
-        <!-- Default inline 3-->
         <div class="custom-control custom-radio custom-control-inline">
           <input type="radio" class="custom-control-input" id="defaultInline3" name="inlineDefaultRadiosExample"
             [value]="radioValues[2]" [(ngModel)]="template" mdbInput>
           <label class="custom-control-label" for="defaultInline3">3 عبوة</label>
         </div>
-
-        <!-- Default inline 4-->
         <div class="custom-control custom-radio custom-control-inline">
           <input type="radio" class="custom-control-input" id="defaultInline4" name="inlineDefaultRadiosExample"
             [value]="radioValues[3]" [(ngModel)]="template" mdbInput>
           <label class="custom-control-label" for="defaultInline4">5 عبوة</label>
         </div>
-
-      </div>
-
+      </div> -->
     </form>
   </div>
 </div>

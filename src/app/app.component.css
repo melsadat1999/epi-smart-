@@ -48,13 +48,9 @@
     align-self: center;
 }
 
-#cards {
-    height: 25vw;
-}
 
 /* price div */
 .prices {
-    height: 600px;
     margin: 25px;
 }
 
@@ -174,7 +170,10 @@ font-size: 22px;
 /***************************************\
      Main Queries // phone
   \***************************************/
-@media (min-width: 300px) and (max-width: 930px) {
+@media (min-width: 300px) and (max-width: 970px) {
+    .shadow{
+        margin-bottom: 25px;
+    }
     .form-group input,
     select {
         height: 40px;
