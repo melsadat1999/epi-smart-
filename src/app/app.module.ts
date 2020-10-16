@@ -1,21 +1,21 @@
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppComponent, ModalContentComponent } from './app.component';
-import {  HttpClientModule} from '@angular/common/http';
+import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DataService } from './data.service';
 import { OffersService } from './offers.service';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { MassageComponent } from './massage/massage.component';
+import { HomeComponent } from './home/home.component';
+import { AppRoutingModule } from './app-routing.module'
 @NgModule({
   declarations: [
-    AppComponent,ModalContentComponent 
+    AppComponent, MassageComponent, HomeComponent
   ],
-  entryComponents: [
-    ModalContentComponent
-],
   imports: [
     BrowserModule,
     FormsModule,
@@ -24,9 +24,10 @@ import { NgxSpinnerModule } from "ngx-spinner";
     HttpModule,
     NgxSpinnerModule,
     ModalModule.forRoot(),
-   // ModalModule.forRoot()
+    AppRoutingModule
+    // ModalModule.forRoot()
   ],
-  providers: [DataService,OffersService],
+  providers: [DataService, OffersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

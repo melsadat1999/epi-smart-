@@ -1,0 +1,298 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<!-- Header -->
+<nav class="navbar fixed-top">
+  <div class="container">
+    <div class="row justify-content-center" style="width:100%;">
+      <div class="col-3" style="align-self:center;">
+        <img src="../assets/btn1.png" id="btn" class="d-inline-block" (click)="scrollToElement(request)" alt="">
+
+      </div>
+
+      <div class="col-6">
+        <h5 id="timer_text">الوقت المتبقي على 60% تخفيض</h5>
+        <div id="timer">
+          <span *ngIf="clocks < 10">0</span>{{clocks}} : <span *ngIf="timeLeft < 10">0</span>{{timeLeft}} : <span
+            *ngIf="timeSeconds < 10">0</span>{{timeSeconds}}
+        </div>
+      </div>
+
+
+      <div class="col-3">
+        <img src="../assets/logo.png" id="logo" class="d-inline-block align-top" alt="">
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<!-- (click)="scrollToElement(request)" -->
+<!-- Imgs-->
+<section class="RegistrationFrom">
+
+  <div class="row align-items-center p-md-1">
+    <div class="col-lg-4 col-md-6">
+      <div class="newRequest">
+        <form name="ff" (ngSubmit)="ff.form.valid && submit()" #ff="ngForm" novalidate>
+          <div class="form-group">
+            <label for="fullName">الإسم بالكامل</label>
+            <input type="text" placeholder="الإسم بالكامل" name="name" class="form-control" required
+              [(ngModel)]="model.fullName" #name="ngModel" minlength="3" maxlength="100" />
+            <div *ngIf="!name.valid && (ff.submitted || name.dirty || name.touched)" class="text-danger">
+              <div [hidden]="!name.errors.required">هذا الحقل مطلوب . </div>
+
+              <div [hidden]="!name.errors.maxlength">هذا الحقل لا يزيد عن 100 حرف . </div>
+
+              <div [hidden]="!name.errors.minlength">هذا الحقل لا يقل عن 3 حرف . </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">الهاتف</label>
+            <input type="tel" placeholder="رقم الهاتف" name="phone" class="form-control" required
+              [(ngModel)]="model.phone" #phone="ngModel" />
+
+            <div *ngIf="!phone.valid && (ff.submitted || phone.dirty || phone.touched)" class="text-danger">
+              <div [hidden]="!phone.errors.required">هذا الحقل مطلوب . </div>
+
+
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="country">الدولة</label>
+            <select class="form-control" [(ngModel)]="country" name="myCountry" (change)="selectChanged()">
+              <option value="0">أختر الدولة</option>
+              <option value="1">السعودية</option>
+              <option value="2">الأمارات العربية المتحدة</option>
+              <option value="3">عمان</option>
+              <option value="4">قطر</option>
+              <option value="5">البحرين</option>
+              <option value="6">الكويت</option>
+              <option value="7">العراق</option>
+              <option value="8">الأردن</option>
+              <option value="9">مصر</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="phone">المدينه</label>
+
+            <select class="form-control" #city="ngModel" required [(ngModel)]="model.governmentId" name="city">
+              <option value="">أختر المدينه</option>
+
+              <option *ngFor="let city of cities" [value]="city.id">{{city.nameAr}}</option>
+            </select>
+            <div *ngIf="!city.valid && (ff.submitted || city.dirty || city.touched)" class="text-danger">
+              <div [hidden]="!city.errors.required">هذا الحقل مطلوب . </div>
+            </div>
+          </div>
+          <button type="submit" class="btn submitForm " [disabled]="!ff.valid">تأكيد الطلب</button>
+        </form>
+      </div>
+    </div>
+
+
+
+
+    <div class="col-lg-8 col-md-6">
+      <img class="img" src="../assets/content1.png">
+
+    </div>
+
+
+  </div>
+  <img src="../assets/content2.jpg" width="100%" (click)="scrollToElement(request)">
+  <img src="../assets/content3.jpg" width="100%">
+</section>
+
+
+<div class="prices" #price>
+
+
+  <div id="cards">
+
+
+    <div class="d-flex mb-4 mt-4 align-items-center">
+      <div class="col-8 offset-1 ">
+        <select class="custom-select" [(ngModel)]="country" (change)="selectChanged()">
+          <option value="0">الدولة</option>
+          <option value="1">السعودية</option>
+          <option value="2">الأمارات العربية المتحدة</option>
+          <option value="3">عمان</option>
+          <option value="4">قطر</option>
+          <option value="5">البحرين</option>
+          <option value="6">الكويت</option>
+          <option value="7">العراق</option>
+          <option value="8">الأردن</option>
+          <option value="9">مصر</option>
+        </select>
+
+      </div>
+      <p class="title-Price mb-0"> عروض الأسعار
+      </p>
+
+    </div>
+
+    <div class="flexcon">
+      <div class="row">
+        <div class="col-lg-3 col-sm-6" *ngFor="let item of offers;let i=index">
+          <div class="shadow card">
+            <div class="imgItem">
+              <img [src]="item.image" class="card-img-top" alt="...">
+            </div>
+            <div class="circle">
+              <span class="price">
+                {{item.currentPrice}}{{item.currencyLetter}}
+              </span>
+            </div>
+
+            <div class="card-body">
+
+              <p class="p-sm">
+                <span class="price" *ngIf="i==0">
+                  عبوة واحدة بعد الخصم
+                </span>
+                <span class="price" *ngIf="i==1">
+                  عبوتين بعد الخصم
+                </span>
+                <span class="price" *ngIf="i==2">
+                  ثلاث عبوات + عبوة هدية
+                </span>
+                <span class="price" *ngIf="i==3">
+                  خمس عبوات + عبوة هدية
+                </span>
+                {{item.currentPrice}} {{item.currency}}
+                <br>
+                <del>
+                  بدلا من {{item.oldPrice}} {{item.currency}}
+                </del>
+                <br>
+                <span *ngIf="item.charge != 0">
+                  <!-- +{{}} {{}} شحن -->
+                  شحن {{item.charge}} {{item.currency}} +
+                </span>
+                <span *ngIf="item.charge == 0">
+                  شحن مجاني
+                </span>
+              </p>
+
+              <button (click)="orderOffer(i);scrollToElement(request)" class="btn"
+                style="background-color: #2cbd4f; color:white; border-radius:30px; padding:4% 10%;">اطلب
+                الآن</button>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+<div style="background-color: #803C64;padding:5%;font-size: 1rem">
+
+  <div class="content" #request>
+    <form name="f" (ngSubmit)="f.form.valid && submit()" #f="ngForm" novalidate>
+      <div class="row align-items-center">
+
+
+        <div class="col-12">
+
+
+          <div class="form-group">
+            <label for="fullName">الإسم بالكامل</label>
+            <input type="text" placeholder="الإسم بالكامل" name="name" class="form-control" required
+              [(ngModel)]="model.fullName" #name="ngModel" minlength="3" maxlength="100" />
+            <div *ngIf="!name.valid && (f.submitted || name.dirty || name.touched)" class="text-danger">
+              <div [hidden]="!name.errors.required">هذا الحقل مطلوب . </div>
+
+              <div [hidden]="!name.errors.maxlength">هذا الحقل لا يزيد عن 100 حرف . </div>
+
+              <div [hidden]="!name.errors.minlength">هذا الحقل لا يقل عن 3 حرف . </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="address">العنوان</label>
+            <input type="text" placeholder="العنوان بالتفصيل" name="address" class="form-control" required
+              [(ngModel)]="model.address" #address="ngModel" minlength="3" maxlength="500" />
+
+
+
+            <div *ngIf="!address.valid && (f.submitted || address.dirty || address.touched)" class="text-danger">
+              <div [hidden]="!address.errors.required">هذا الحقل مطلوب . </div>
+
+              <div [hidden]="!address.errors.maxlength">هذا الحقل لا يزيد عن 500 حرف . </div>
+
+              <div [hidden]="!address.errors.minlength">هذا الحقل لا يقل عن 3 حرف . </div>
+            </div>
+
+          </div>
+          <div class="form-group">
+            <label for="phone">الهاتف</label>
+            <input type="tel" placeholder="رقم الهاتف" name="phone" class="form-control" required
+              [(ngModel)]="model.phone" #phone="ngModel" />
+
+            <div *ngIf="!phone.valid && (f.submitted || phone.dirty || phone.touched)" class="text-danger">
+              <div [hidden]="!phone.errors.required">هذا الحقل مطلوب . </div>
+
+
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">المدينه</label>
+
+            <select class="form-control" #city="ngModel" required [(ngModel)]="model.governmentId" name="city">
+              <option value="">أختر المدينه</option>
+
+              <option *ngFor="let city of cities" [value]="city.id">{{city.nameAr}}</option>
+            </select>
+            <div *ngIf="!city.valid && (f.submitted || city.dirty || city.touched)" class="text-danger">
+              <div [hidden]="!city.errors.required">هذا الحقل مطلوب . </div>
+
+            </div>
+          </div>
+          <button type="submit" class="btn  large" [disabled]="!f.valid"
+            style="width: 100%;padding: 2% 20%; font-weight:bold; background-color: #2cbd4f; color:white;">تأكيد
+            الطلب</button>
+        </div>
+
+      </div>
+      <!-- <div class="row choosedRadio">
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample"
+            [value]="radioValues[0]" [(ngModel)]="template" mdbInput>
+          <label class="custom-control-label" for="defaultInline1">1 عبوة</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample"
+            [(ngModel)]="template" [value]="radioValues[1]" mdbInput>
+          <label class="custom-control-label" for="defaultInline2">2 عبوة</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" class="custom-control-input" id="defaultInline3" name="inlineDefaultRadiosExample"
+            [value]="radioValues[2]" [(ngModel)]="template" mdbInput>
+          <label class="custom-control-label" for="defaultInline3">3 عبوة</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" class="custom-control-input" id="defaultInline4" name="inlineDefaultRadiosExample"
+            [value]="radioValues[3]" [(ngModel)]="template" mdbInput>
+          <label class="custom-control-label" for="defaultInline4">5 عبوة</label>
+        </div>
+      </div> -->
+    </form>
+  </div>
+</div>
+
+
+<!-- <button type="button" class="btn btn-primary" (click)="openModal(template1)">Create template modal</button>
+ 
+<ng-template #template1>
+
+  <div class="modal-body">
+    <img src="assets/success.jpg" style="width: 103%;">
+  </div>
+</ng-template> -->
